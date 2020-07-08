@@ -1,0 +1,61 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# General
+PREFIX = "u1804-simple"
+K8S_VERSION = "1.18.4"
+DOCKER_VERSION = "19.03.11"
+DOMAIN = "example.com"
+
+# Master
+MASTER_IP_PREFIX = "10.0.1.1"
+K8S_APISERVER_ADDRESS = "10.0.1.10"
+K8S_POD_NETWORK_CIDR = "192.168.0.0/16"
+CNI_MANIFEST_URL = "https://docs.projectcalico.org/v3.9/manifests/calico.yaml"
+
+# Worker
+WORKER_IP_PREFIX = "10.0.1.2"
+
+ENV['VAGRANT_NO_PARALLEL'] = 'yes'
+
+Vagrant.configure(2) do |config|
+
+  # All VMs
+  config.vm.provision "shell", path: "./scripts/base.sh", env: {"PREFIX" => "#{PREFIX}"}
+  config.vm.provision "shell", path: "https://raw.githubusercontent.com/SudoBrendan/k8s-vagrant-shared/master/ubuntu-1804/scripts/install-docker-binaries.sh", env: {"DOCKER_VERSION" => "#{DOCKER_VERSION}"}
+  config.vm.provision "shell", path: "https://raw.githubusercontent.com/SudoBrendan/k8s-vagrant-shared/master/ubuntu-1804/scripts/install-kubernetes-binaries.sh", env: {"K8S_VERSION" => "#{K8S_VERSION}"}
+
+
+  # Kubernetes Control Plane Server
+  (0..0).each do |i|
+    config.vm.define "#{PREFIX}-master#{i}" do |master|
+      master.vm.box = "bento/ubuntu-18.04"
+      master.vm.hostname = "#{PREFIX}-master#{i}.#{DOMAIN}"
+      master.vm.network "private_network", ip: "#{MASTER_IP_PREFIX}#{i}"
+      master.vm.provider "virtualbox" do |v|
+        v.name = "#{PREFIX}-master#{i}"
+        v.memory = 2048
+        v.cpus = 2
+      end
+      master.vm.provision "shell", path: "./scripts/master.sh", env: {"K8S_VERSION" => "#{K8S_VERSION}", "K8S_APISERVER_ADDRESS" => "#{K8S_APISERVER_ADDRESS}", "K8S_POD_NETWORK_CIDR" => "#{K8S_POD_NETWORK_CIDR}", "CNI_MANIFEST_URL" => "#{CNI_MANIFEST_URL}"}
+    end
+  end
+
+
+  # Kubernetes Worker Nodes
+  # WARNING: If you go beyond 5 instances, update the Hosts file in base.sh!
+  (0..1).each do |i|
+    config.vm.define "#{PREFIX}-worker#{i}" do |worker|
+      worker.vm.box = "bento/ubuntu-18.04"
+      worker.vm.hostname = "#{PREFIX}-worker#{i}.#{DOMAIN}"
+      worker.vm.network "private_network", ip: "#{WORKER_IP_PREFIX}#{i}"
+      worker.vm.provider "virtualbox" do |v|
+        v.name = "#{PREFIX}-worker#{i}"
+        v.memory = 1024
+        v.cpus = 1
+      end
+      worker.vm.provision "shell", path: "./scripts/worker.sh"
+    end
+  end
+
+end
