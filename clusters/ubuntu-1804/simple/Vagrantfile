@@ -21,7 +21,7 @@ ENV['VAGRANT_NO_PARALLEL'] = 'yes'
 Vagrant.configure(2) do |config|
 
   # All VMs
-  config.vm.provision "shell", path: "./scripts/base.sh", env: {"PREFIX" => "#{PREFIX}"}
+  config.vm.provision "shell", path: "./scripts/base.sh", env: {"PREFIX" => "#{PREFIX}", "DOMAIN" => "#{DOMAIN}"}
   config.vm.provision "shell", path: "https://raw.githubusercontent.com/SudoBrendan/k8s-vagrant-shared/master/ubuntu-1804/scripts/install-docker-binaries.sh", env: {"DOCKER_VERSION" => "#{DOCKER_VERSION}"}
   config.vm.provision "shell", path: "https://raw.githubusercontent.com/SudoBrendan/k8s-vagrant-shared/master/ubuntu-1804/scripts/install-kubernetes-binaries.sh", env: {"K8S_VERSION" => "#{K8S_VERSION}"}
 
