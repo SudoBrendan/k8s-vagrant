@@ -1,0 +1,57 @@
+apiVersion: policy/v1beta1
+kind: PodSecurityPolicy
+metadata:
+  name: zz-privileged
+spec:
+  allowPrivilegeEscalation: true
+  allowedCapabilities:
+  - '*'
+  fsGroup:
+    rule: 'RunAsAny'
+  hostIPC: true
+  hostNetwork: true
+  hostPID: true
+  hostPorts:
+  -  min: 0
+     max: 65535
+  runAsUser:
+     rule: 'RunAsAny'
+  seLinux:
+     rule: 'RunAsAny'
+  supplementalGroups:
+     rule: 'RunAsAny'
+  volumes:
+  - '*'
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: psp-zz-privileged
+rules:
+- apiGroups: ['policy']
+  resources: ['podsecuritypolicies']
+  verbs: ['use']
+  resourceNames:
+  - 'zz-privileged'
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: psp-zz-privileged
+roleRef:
+  kind: ClusterRole
+  name: psp-zz-privileged
+  apiGroup: rbac.authorization.k8s.io
+subjects:
+- kind: ServiceAccount
+  name: calico-kube-controllers
+  namespace: kube-system
+- kind: ServiceAccount
+  name: calico-node
+  namespace: kube-system
+- kind: ServiceAccount
+  name: coredns
+  namespace: kube-system
+- kind: ServiceAccount
+  name: kube-proxy
+  namespace: kube-system
