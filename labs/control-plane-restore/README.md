@@ -1,11 +1,11 @@
 # Lab: Control Plane Restore
 
-Take backups of cricial control plane data, then restore a completely destroyed
+Take backups of critical control plane data, then restore a completely destroyed
 cluster.
 
 ## Description
 
-This scenario is the absolte worst case: The single master node has failed...
+This scenario is the absolute worst case: The single master node has failed...
 While our workloads are still functional (for now!), it's up to us to restore
 the cluster so our control plane functionality resumes as if nothing had
 happened.

@@ -52,7 +52,7 @@ exit
 
 ## Labs
 
-To go through a few different administrative exercies, check out the [labs](./labs).
+To go through a few different administrative exercises, check out the [labs](./labs).
 
 ## Disclaimer
 
@@ -70,6 +70,11 @@ Before doing anything with this repository, please read the [LICENSE](LICENSE).
 Have an addition or an edit to contribute? Wonderful! Submit me an Issue
 or a PR! :) Please keep things relevant directly to the vagrant configurations
 or the labs.
+
+This repo uses a very-slightly modified [git-spell-check](https://github.com/mprpic/git-spell-check)
+pre-commit hook for validating spelling in `./labs/`. To issue commits to files
+there, you'll need to install `aspell` and an english dictionary, likely
+`aspell-en`.
 
 ## Credits
 

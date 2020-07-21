@@ -2,7 +2,7 @@
 
 ## Description
 
-## Prereq
+## Prerequisites
 
 ## Objectives
 
