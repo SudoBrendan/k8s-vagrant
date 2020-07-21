@@ -71,10 +71,8 @@ Have an addition or an edit to contribute? Wonderful! Submit me an Issue
 or a PR! :) Please keep things relevant directly to the vagrant configurations
 or the labs.
 
-This repo uses a very-slightly modified [git-spell-check](https://github.com/mprpic/git-spell-check)
-pre-commit hook for validating spelling in `./labs/`. To issue commits to files
-there, you'll need to install `aspell` and an english dictionary, likely
-`aspell-en`.
+Check out the [contribution](./contribute/README.md) guide for more information.
+
 
 ## Credits
 
