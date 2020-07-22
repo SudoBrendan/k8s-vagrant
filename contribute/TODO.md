@@ -35,8 +35,8 @@ know your way around Kubernetes... Here's the current [curriculum](https://githu
     - [ ] Configure a ServiceAccount with read rights on the cluster (!!!)
 - [ ] Network Policies
     - [ ] Lock down a full stack (cache/web/database) with PNP
-- [ ] Cluster TLS Certificates
-    - [ ] Rebuild a component's certificates from scratch, preferably with cfssl
+- [X] Cluster TLS Certificates
+    - [X] Rebuild a component's certificates from scratch, preferably with cfssl
 - [ ] Work With Images Securely
     - [ ] Provision a private docker repo in the cluster, stand up Secret for authentication for a Namespace
 - [ ] Define Security Contexts
