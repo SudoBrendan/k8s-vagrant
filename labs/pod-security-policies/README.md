@@ -11,7 +11,7 @@ ports, etc), or refuse to run containers as certain UIDs on hosts. Enabling
 PSPs should be a consideration when [securing your cluster](https://kubernetes.io/docs/concepts/security/overview/#cluster-applications). Check out [Pod Security Standards](https://kubernetes.io/docs/concepts/security/pod-security-standards/)
 for some baseline concepts for policies.
 
-## Prereq
+## Prerequisites
 
 ```sh
 # provision cluster

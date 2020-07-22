@@ -1,5 +1,7 @@
 # K8s-Vagrant: Contribute
 
+Thanks for considering a contribution to this repo!
+
 ## Spell Checking
 
 To keep things simple and prevent silly errors, you can set up your local git
@@ -23,4 +25,9 @@ aspell-en
 Once configured, each time you commit a change to `./labs/`, your contribution
 will be spell-checked locally, with a custom dictionary of words you approve saved
 to `~/.git-spell-check`.
+
+## TODOs
+
+Want something to do, but don't know where to start? For now, I'm keeping stuff
+in [TODO](TODO.md).
 

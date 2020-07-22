@@ -10,7 +10,7 @@ While our workloads are still functional (for now!), it's up to us to restore
 the cluster so our control plane functionality resumes as if nothing had
 happened.
 
-## Prereq
+## Prerequisites
 
 ```sh
 cd <TOP>/clusters/ubuntu-1804/simple

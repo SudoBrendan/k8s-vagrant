@@ -7,7 +7,7 @@ Walk-through Operating System patching for all K8s control plane and worker node
 To maintain security of all your nodes, you'll need a patching strategy. With
 proper sequencing, you can patch all nodes without downtime of workloads.
 
-## Prereq
+## Prerequisites
 
 ```sh
 cd <TOP>/clusters/ubuntu-1804/simple
