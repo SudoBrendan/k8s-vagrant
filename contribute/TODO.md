@@ -9,7 +9,7 @@ distro installs and Kubernetes configurations:
     - [X] Simple
     - [ ] Highly Available
 - [ ] Ubuntu 20.04
-    - [X] Simple
+    - [ ] Simple
     - [ ] Highly Available
 - [ ] CentOS ??
     - [ ] Simple
@@ -55,7 +55,7 @@ know your way around Kubernetes... Here's the current [curriculum](https://githu
 ### Cluster Maintenance
 
 - [ ] Cluster Upgrades
-    - [ ] Simple Upgrade
+    - [X] Simple Upgrade
     - [ ] Highly Available Upgrade
 - [X] OS Upgrades
 - [ ] Backup and Restore
