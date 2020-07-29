@@ -3,7 +3,7 @@
 Understanding the basics of a Kubernetes cluster can be a bit confusing because
 there are many ways to stand up a cluster, and the Kubernetes docs don't always
 differentiate which components are always required, sometimes required depending
-on your hosting environment, and sometimes required dpending on the workloads
+on your hosting environment, and sometimes required depending on the workloads
 you plan on running in the cluster.
 
 Let's walk through the cluster provisioned in our Vagrant VMs and the components
