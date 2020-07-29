@@ -22,7 +22,7 @@ know your way around Kubernetes... Here's the current [curriculum](https://githu
 
 ### Core Concepts
 
-- [ ] Architecture (guided tour of kubeadm cluster)
+- [X] Architecture (guided tour of kubeadm cluster)
 - [ ] Primitives
     - [ ] stand up a scaled, stateless web app with ingress and TLS
     - [ ] stand up a stateful, clustered database
