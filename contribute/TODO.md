@@ -47,8 +47,8 @@ know your way around Kubernetes... Here's the current [curriculum](https://githu
 
 ### Installation, Configuration, and Validation
 
-- [ ] Simple
-    - [ ] kubeadm install for masters, nodes, CNI, secure communications, master e2e tests, node e2e tests
+- [X] Simple
+    - [X] kubeadm install for masters, nodes, CNI, secure communications, master e2e tests, node e2e tests
 - [ ] Highly Available
     - [ ] kubeadm install for masters, nodes, CNI, secure communications, master e2e tests, node e2e tests
 
