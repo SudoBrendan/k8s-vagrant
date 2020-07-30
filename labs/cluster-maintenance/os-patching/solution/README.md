@@ -63,5 +63,5 @@ maintenance. Slick!
 If you've already got an automated patching strategy and only
 want to facilitate kubernetes-safe draining/rebooting/uncordoning of all your
 nodes in the cluster, check out
-[KUbernetes REboot Daemon](https://github.com/weaveworks/kured) by WeaveWorks.
+[Kubernetes Reboot Daemon](https://github.com/weaveworks/kured) by WeaveWorks.
 

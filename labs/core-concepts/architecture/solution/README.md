@@ -62,7 +62,7 @@ All Kubernetes clusters require at a minimum the following components:
 
 1. `kube-apiserver` - An endpoint for the API where we can interact with the
    cluster
-1. `etcd` - A distributed key:value datastore used for all cluster persistence 
+1. `etcd` - A distributed key:value data store used for all cluster persistence 
 1. `kube-scheduler` - loop/event automation responsible for finding appropriate
    nodes to run Pods
 1. `kube-controllermanager` - loop/event automation responsible for ensuring
@@ -82,7 +82,7 @@ running containers. In fact, you can install `kubelet` on a machine without
 any control plane connected to it, if you were fine with performing manual
 upgrades and disaster recovery of Pods between nodes. To learn more about
 this design pattern, I'd recommend
-[this explaination by Saad Ali](https://www.youtube.com/watch?v=ZuIQurh_kDk).
+[this explanation by Saad Ali](https://www.youtube.com/watch?v=ZuIQurh_kDk).
 
 Long story short: we can use `kubelet` (managed by `systemd`) to run Pods
 without the control plane, so `kubeadm` configures what are called
@@ -101,10 +101,10 @@ kubeconfig files (used to authenticate into the API), and any links to external
 configuration files. You should also become familiar with the `kubelet`
 configuration in `systemd` found in `/etc/systemd/system/`.
 
-If you want a completely detailed walkthrough of standing up this entire stack
-by hand, do a runthrough of
+If you want a completely detailed walk through of standing up this entire stack
+by hand, do a run-through of
 [Kubernetes the Hard Way](https://github.com/kelseyhightower/kubernetes-the-hard-way);
-I'd highly recommend it. Just note that KTHW is a walkthrough on GCP, if you
+I'd highly recommend it. Just note that KTHW is a walk-through on GCP, if you
 have access to another cloud, there are alternate versions on GitHub. If you'd
 rather do everything locally, there's a Vagrant version too!
 
@@ -171,10 +171,10 @@ cluster, but there's plenty more a production-ready cluster might have:
 1. Logging/Monitoring/Alerting: something to aggregate logs of cluster components,
    workloads, and servers in the cluster in a single stateful location and notify
    admins and/or devs when something is wonky
-1. Ingress Controller: allowing us to use Ingress objects (layer 7 loadbalancer)
-1. Layer 4 Loadbalancer: expose raw TCP (databases/caches/etc) out of the
+1. Ingress Controller: allowing us to use Ingress objects (layer 7 load balancer)
+1. Layer 4 Load balancer: expose raw TCP (databases/caches/etc) out of the
    cluster by IP (as opposed to the default NodePort Service)
-1. Mesh Network: if your workloads include microserice architecture, mesh networking
+1. Mesh Network: if your workloads include microservice architecture, mesh networking
    can improve your workflows and provide advanced networking features
 1. Dashboard: an alternate to just using `kubectl`, you can interact with
    the cluster via a website
@@ -186,5 +186,5 @@ cluster, but there's plenty more a production-ready cluster might have:
 `kubeadm` clusters give us an easy way to provision a bare-bones cluster
 with control plane and worker nodes without any cloud interaction which
 mostly relies on `kubelet` instead of traditional process managers like
-`systemd`. The only addons are for a minimalistic network setup, and
+`systemd`. The only add-ons are for a minimalistic network setup, and
 extending past that requires other efforts by administrators.
