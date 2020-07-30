@@ -38,7 +38,8 @@ know your way around Kubernetes... Here's the current [curriculum](https://githu
 - [X] Cluster TLS Certificates
     - [X] Rebuild a component's certificates from scratch, preferably with cfssl
 - [ ] Work With Images Securely
-    - [ ] Provision a private docker repo in the cluster, stand up Secret for authentication for a Namespace
+    - [ ] Provision a private docker repo in the cluster, stand up Secret for
+          authentication for a Namespace
 - [ ] Define Security Contexts
     - [ ] Configure a privileged Pod and a locked-down Pod (CAPS)
     - [X] Create and use Pod Security Policies
@@ -48,9 +49,11 @@ know your way around Kubernetes... Here's the current [curriculum](https://githu
 ### Installation, Configuration, and Validation
 
 - [X] Simple
-    - [X] kubeadm install for masters, nodes, CNI, secure communications, master e2e tests, node e2e tests
+    - [X] kubeadm install for masters, nodes, CNI, secure communications, master
+          e2e tests, node e2e tests
 - [ ] Highly Available
-    - [ ] kubeadm install for masters, nodes, CNI, secure communications, master e2e tests, node e2e tests
+    - [ ] kubeadm install for masters, nodes, CNI, secure communications, master
+          e2e tests, node e2e tests
 
 ### Cluster Maintenance
 
@@ -68,25 +71,52 @@ know your way around Kubernetes... Here's the current [curriculum](https://githu
 
 ### Networking
 
- - [ ]
+ - [ ] Cluster networking
+    - [ ] CNI configuration
+    - [ ] Understand node network
+    - [ ] Cluster DNS
+ - [ ] Service networking
+     - [ ] Deploy network load balancer
+ - [ ] Ingress rules
 
 ### Troubleshooting
 
- - [ ] 
+ - [ ] Application failure
+ - [ ] Control plane failure
+ - [ ] Worker node failure
+ - [ ] Network failure
 
-### Application Lifecycle Management
+### Application Life Cycle Management
 
- - [ ] 
+ - [ ] Deployments
+    - [ ] Updates, rollbacks, scaling
+ - [ ] Jobs
+    - [ ] Scaling, CronJobs
+ - [ ] StatefulSets
+    - [ ] Updates, rollbacks, scaling, caveats
+ - [ ] Pods
+     - [ ] ConfigMap/Secret usage
+     - [ ] Self-Healing applications
 
 ### Storage
 
- - [ ] 
+ - [ ] Cluster storage
+    - [ ] PersistentVolumes, StorageClasses, PersistentVolumeClaims
+ - [ ] Pod storage
+     - [ ] Volumes (access modes), configuration through Volumes
 
 ### Scheduling
 
- - [ ] 
+ - [ ] Scheduling Pods
+    - [ ] NodeSelector, label selectors, static pods, schedule events, resource limits
+ - [ ] DaemonSets
+ - [ ] kube-scheduler
+    - [ ] Multiple schedulers, configure scheduler, events
 
 ### Logging/Monitoring
 
- - [ ] 
+ - [ ] Cluster components
+    - [ ] Monitor / manage logs
+ - [ ] Applications
+    - [ ] Monitor / manage logs
 
