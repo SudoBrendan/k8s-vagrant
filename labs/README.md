@@ -12,6 +12,8 @@ in the [vagrant clusters](../clusters), which are provisioned using
 - Security
     - [Cluster TLS Certificates](./security/control-plane-certificates/README.md)
     - [Create and Use Pod Security Policies](./security/pod-security-policies/README.md)
+- Installation, Configuration, and Validation
+    - [Single Node Cluster](./installation-configuration-validation/single-cp-cluster/README.md)
 - Cluster Maintenance
     - [Upgrade](./cluster-maintenance/cluster-upgrade/README.md)
     - [Operating System Patching](./cluster-maintenance/os-patching/README.md)
