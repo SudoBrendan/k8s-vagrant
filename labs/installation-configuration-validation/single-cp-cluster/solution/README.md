@@ -88,12 +88,12 @@ If everything worked properly, you should be able to...
 1. test DNS
     ```sh
     # Deployment DNS
-    kubectl run bb --image=buxybox -it --rm --restart=Never -- wget -O- http://nginx
-    kubectl run bb --image=buxybox -it --rm --restart=Never -- wget -O- http://nginx.default
-    kubectl run bb --image=buxybox -it --rm --restart=Never -- wget -O- http://nginx.default.svc.cluster.local
+    kubectl run bb --image=busybox -it --rm --restart=Never -- wget -O- http://nginx
+    kubectl run bb --image=busybox -it --rm --restart=Never -- wget -O- http://nginx.default
+    kubectl run bb --image=busybox -it --rm --restart=Never -- wget -O- http://nginx.default.svc.cluster.local
 
     # Pod (Deployment) DNS
-    kubectl run bb --image=buxybox -it --rm --restart=Never -- wget -O- http://<IP-OF-POD-HYPHENATED>.nginx.default.svc.cluster.local
+    kubectl run bb --image=busybox -it --rm --restart=Never -- wget -O- http://<IP-OF-POD-HYPHENATED>.nginx.default.svc.cluster.local
     ```
 
 ## Conclusions
@@ -103,7 +103,7 @@ and most of what you need is found in the output of `kubeadm init` once you get 
 that point. The install guides in the official k8s docs are a great resource and
 very easy to understand, so run through this a few times to get really comfortable
 with the process. Additionally, using `tmux` or some other tool capable of
-having syncronized panes (performing the same command in multiple terminals) is
+having synchronized panes (performing the same command in multiple terminals) is
 a huge help for installing the binaries and joining multiple nodes to the cluster
 at once. You might also check out creating
 [kubeadm config files](https://kubernetes.io/docs/reference/setup-tools/kubeadm/kubeadm-config/)

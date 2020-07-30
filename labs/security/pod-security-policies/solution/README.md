@@ -104,7 +104,7 @@ cd <TOP>/clusters/ubuntu-1804/simple
 ## Conclusions
 
 PodSecurityPolicies are a great way to prevent users of your cluster from doing
-malicous things either intentionally or unintentionally, or enforcing security
+malicious things either intentionally or unintentionally, or enforcing security
 standards for everyone with a few manifests (e.g. require a particular `seccomp`
 profile for every container). However, you must use caution when enabling this functionality by
 setting RBAC permissions correctly, and you must ensure your development teams

@@ -58,7 +58,7 @@ We'll talk a little more about how this networking is configured below.
 
 ## Step 3: Control Plane Components
 
-All Kubernetes clusters require at a minumum the following components:
+All Kubernetes clusters require at a minimum the following components:
 
 1. `kube-apiserver` - An endpoint for the API where we can interact with the
    cluster

@@ -2,7 +2,7 @@
 
 Go through the process of upgrading a Kubernetes cluster's binaries.
 
-## Descripiton
+## Description
 
 When administering a Kubernetes cluster, you will need to roll new versions of
 the Kubernetes binaries to both the control plane and worker nodes to address
