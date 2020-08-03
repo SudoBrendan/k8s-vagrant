@@ -1,0 +1,10 @@
+namespace: metallb-system
+
+resources:
+
+  # pulled via script
+  - namespace.yaml
+  - metallb.yaml
+
+  - configmap.yaml 
+  - secret.yaml

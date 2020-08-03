@@ -1,0 +1,12 @@
+controller:
+  kind: daemonset
+
+service:
+  create: true
+  type: LoadBalancer
+  externalTrafficPolicy: Local
+  httpPort:
+    enable: false
+prometheus:
+  create: false
+  

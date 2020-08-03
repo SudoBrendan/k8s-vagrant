@@ -2,7 +2,23 @@
 
 set -e
 
+echo "=============================="
+echo "ADMIN TOOLS"
+echo "=============================="
+
+echo "ETCDCTL"
 apt-get update && apt-get install -y etcd-client
+
+echo "HELM"
+tdir=$(mktemp -d)
+pushd $tdir
+    helm_version="3.2.4"
+    helm_arch="linux-amd64"
+    wget https://get.helm.sh/helm-v${helm_version}-${helm_arch}.tar.gz
+    tar -xzvf ./helm-v${helm_version}-${helm_arch}.tar.gz
+    cp ./${helm_arch}/helm /usr/local/bin
+popd
+rm -rf $tdir
 
 echo "=============================="
 echo "KUBEADM INIT"
