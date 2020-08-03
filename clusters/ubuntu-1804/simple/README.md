@@ -38,7 +38,7 @@ INSTALL_BINARIES_MASTERS="N" INSTALL_BINARIES_WORKERS="N" vagrant up
 Here are the supported options:
 
 |Environment Variable|Description|Dependencies|Default|Override|
-|--|--|--|--|--|--|
+|--|--|--|--|--|
 |`INSTALL_BINARIES_MASTERS`|Install container runtime and all Kubernetes binaries (kubeadm/kubelet/kubectl) on master nodes|None|install binaries|"N"|
 |`INITIALIZE_MASTERS`|Run `kubeadm init` to provision the cluster|`INSTALL_BINARIES_MASTERS`|initialize masters|"N"|
 |`INITIALIZE_METALLB`|Provision Layer2 configuration for MetalLB, allowing LoadBalancer type Services|`INSTALL_BINARIES_MASTERS`, `INITIALIZE_MASTERS`|do not provision|"Y"|
