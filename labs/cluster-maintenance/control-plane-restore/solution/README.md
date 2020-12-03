@@ -3,15 +3,19 @@
 The main points to know about backup/restoration of a control plane node are:
 
 1. What to backup (and when):
-    - all TLS certificates used by control plane components (once per upgrade, or whenever you roll them manually)
+    - some x509 certificates used by control plane components (once per upgrade, or whenever you roll them manually):
+        - kubernetes certificate authority public/private keys: `/etc/kubernetes/pki/ca.crt`, `/etc/kubernetes/pki/ca.key`
+        - kubernetes front proxy certificate authority public/private keys: `/etc/kubernetes/pki/front-proxy-ca.crt`, `/etc/kubernetes/pki/front-proxy-ca.key`
+        - service account token generation public/private keys: `/etc/kubernetes/pki/sa.pub`, `/etc/kubernetes/pki/sa.key`
+        - etcd certificate authority public/private keys: `/etc/kuberentes/pki/etcd/ca.crt`, `/etc/kuberentes/pki/etcd/ca.key`
     - etcd key-value store (regularly)
     - any custom static Pod definitions, for example, maybe a second scheduler
       or modifications to the api server, like enabling new Admission Controllers
       (the `simple` cluster has none of these, so we don't do this here -
       backup/restore would be identical to the `pki` directory)
-1. Restored node requirements (so certs are valid):
-    - IP must be identical
-    - Hostname must be identical
+1. ~~Restored node requirements (so certs are valid):~~
+    - ~~IP must be identical~~
+    - ~~Hostname must be identical~~
 
 ## Backup
 
@@ -60,7 +64,9 @@ us to use our backup:
 ```sh
 sudo -i
 
-# restore certs
+# restore certs (if your new master node has a new IP, DO NOT COPY non-CA and non-SA files,
+# for example, the api-server etcd client cert, which only has SANs for the old master hostname/IP.
+# `kubeadm init` will regenerate these certificates if you leave the CAs in place)
 cp -a /vagrant/tmp/backup/pki /etc/kubernetes
 
 # restore etcd data dir
@@ -68,6 +74,8 @@ mkdir -p /var/lib/etcd
 docker run --rm -e ETCDCTL_API=3 -v /vagrant/tmp/backup/etcd:/backup/etcd -v /var/lib/etcd:/var/lib/etcd k8s.gcr.io/etcd:3.4.3-0 /bin/sh -c "etcdctl snapshot restore '/backup/etcd/snapshot.db'; mv ./default.etcd/member/ /var/lib/etcd/"
 
 # kubeadm init
+# if your etcd cluster is external, you'll need to generate client certs before `init`:
+# `kubeadm init phase certs apiserver-etcd-client`
 kubeadm init --ignore-preflight-errors=DirAvailable--var-lib-etcd --kubernetes-version=1.18.4 --apiserver-advertise-address=10.0.1.10 --pod-network-cidr=192.168.0.0/16
 
 # copy kubeconfig
