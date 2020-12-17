@@ -12,9 +12,10 @@ on each installed by `kubeadm`.
 ## Step 1: Compute Requirements
 
 A common misconception about Kubernetes is that it's a cloud-specific technology.
-In fact, as of this writing, even the [official component diagram](https://kubernetes.io/docs/concepts/overview/components/) indicates
-that cloud components are in every cluster! This is false. Kubernetes is a set
-of free and [open-source](https://github.com/kubernetes/kubernetes) software
+This is false, even though [optional components](https://kubernetes.io/docs/concepts/overview/components/)
+provide cloud-specific integrations based on providers.
+Kubernetes is a set
+of [free and open-source](https://github.com/kubernetes/kubernetes) software
 that's used to manage any set of compute resources (bare-metal, VMs in any
 cloud, edge compute, a dev machine, etc) and make it available for running
 containerized workloads. In fact, Kubernetes is not far off from a "cloud"
